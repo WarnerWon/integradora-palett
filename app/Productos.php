@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ordenes extends Model
+class Productos extends Model
 {
     protected $fillable = [
-        'FechaOrden','FechaEnvio'
+        'Nombre', 'Cantidad', 'Precio_produccion', 'Precio_venta'
     ];
 }

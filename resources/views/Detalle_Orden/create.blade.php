@@ -1,35 +1,48 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <title>HTML</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="estilo.css">
-</head>
+@extends('layout')
 
-<body>
+@section('content')
 
-    <p> {{ $ordenes }}</p>
-
-    <form class="form-inline" action="crearOrden">
-
-        <label for="date">Fecha de Envio :</label>
-        <input type="date" class="form-control" id="Fecha_envio" name="Fecha_envio">
-        <br>
-        <label for="chechbox">Contenido :</label>
-        <br>
-        <input type="checkbox" class="form-control" id="Producto_id" name="Producto_id">
-        <label for="chechbox">paleta 1</label>
-        <br>
-        <input type="checkbox" class="form-control" id="Producto_id" name="Producto_id">
-        <label for="chechbox">paleta 2</label>
-        <br>
-        <div class="form-check">
-            <label class="form-check-label">
-                <input class="form-check-input" type="checkbox"> Remember me
-            </label>
+<div class="container">
+        <div style="padding: 50px;">
+            <h1 class="display-4 text-center">Palett</h1>
+            <p class="lead text-center">Heladeria Adelita</p>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</body>
-</html>
+
+        <form class="border" style="padding:35px;" action="{{ url('crearOrden') }}" method="POST">
+            @csrf {{ csrf_field() }}
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label class="titulos" for="FechaEnvio">Fecha de Envio:</label>
+                    <input type="date" name="FechaEnvio" class="form-control" id="FechaEnvio">
+                </div>
+                <div class="col-sm-4"></div>
+                <div class="form-group col-sm-4">    
+                    <p class="titulos">Contenido:</p>
+                    @foreach ($productos as $item)
+                        <div class="form-inline">
+                            <input type="checkbox" name="{{ $item->Nombre }}" class="form-check" style="margin-right:8px;" id="{{ $item->Nombre }}"> 
+                        <label  for="{{ $item->Nombre }}" style="margin-right:8px;">{{ $item->Nombre }} x{{ $item->Cantidad }}</label>
+                            <select id="cantidad" class="custom-select my-1 mr-sm-2" name="cantidad">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                  </select>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <button type="reset" class="btn btn-light">Limpiar Campos</button>
+                <button type="submit" class="btn btn-light">Guardar</button>
+            </div>
+        </form>        
+    </div>
+    
+@endsection

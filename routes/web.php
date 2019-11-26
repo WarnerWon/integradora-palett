@@ -11,4 +11,5 @@
 |
 */
 Route::GET('/', 'OrdenesController@traerOrdenes');
+Route::POST('crearOrden', 'OrdenesController@crearOrden');
 
