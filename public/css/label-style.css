@@ -1,6 +1,10 @@
 @import url(font-awesome.min.css);
 
 
+#main {
+	padding-left: 6em;
+}
+
 .titulos {
     font-size: x-large;
     color: #707070;

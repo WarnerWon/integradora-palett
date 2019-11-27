@@ -4,22 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ordenes;
-use App\Detalle_Orden;
+use App\Detalle_Ordenes;
 use App\Productos;
 use DB;
 
 class OrdenesController extends Controller
 {
-    /*public function Index(){
-        $ordenes = Ordenes::all();
-        return view('Detalle_Orden.create');
-    }*/
-
     public function traerOrdenes(){ 
+
         $ordenes = Ordenes::all();
+
+        foreach ($ordenes as $key) {
+            $key['Productos'] = DB::table('detalle__ordenes')
+            ->join('productos', 'productos.id', '=', 'detalle__ordenes.Productos_id')
+            ->join('ordenes', 'ordenes.id', '=', 'detalle__ordenes.Ordenes_id')
+            ->where('Ordenes_id', '=', $key->id)
+            ->select('productos.Nombre')
+            ->get();
+        }
+        //return view('Detalle_Orden.index', compact('array'));
+        return view('Detalle_Orden.index',compact('ordenes'));
+    }
+
+    public function nuevaOrden(){
         $productos = Productos::all();
-  
-        return view('Detalle_Orden.create',compact('ordenes', 'productos'));
+        return view('Detalle_Orden.create', compact('productos'))->with('i');
     }
 
     public function crearOrden(Request $ordenProducto){
@@ -29,6 +38,8 @@ class OrdenesController extends Controller
         ];
         //$orden = Ordenes::create($ordenDatos->all());
         $productos = Productos::all();
+
+        return $ordenProducto;
 
         /*
         foreach ($productos as $auxiliar) {

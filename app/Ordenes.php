@@ -9,4 +9,8 @@ class Ordenes extends Model
     protected $fillable = [
         'FechaOrden','FechaEnvio'
     ];
+
+    public function productos(){
+        $this->belongsToMany(Productos::class);
+    }
 }

@@ -10,6 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::GET('/', 'OrdenesController@traerOrdenes');
+Route::get('/', function () {
+    return view('Welcome');
+});
+
+Route::get('/home', 'HomeController@index')->name('Dashboard');
+
+Route::GET('Ordenes', 'OrdenesController@traerOrdenes');
+Route::GET('nuevaOrden', 'OrdenesController@nuevaOrden');
 Route::POST('crearOrden', 'OrdenesController@crearOrden');
+Route::resource('Dashboard', 'DashboardController');
+
+Auth::routes();
+
 
