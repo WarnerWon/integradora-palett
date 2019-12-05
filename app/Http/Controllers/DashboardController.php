@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ordenes;
+use App\productos;
+use DB;
 
 class DashboardController extends Controller
 {
@@ -13,7 +16,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('Dashboard.Index');
+        $ordendata = ordenes::orderBy('id', 'desc')->limit(3)->get();
+        //$productodata = productos::orderby('id','desc')->limit(3);
+        //$materialdata = material::orderby('CantidadStock', 'desc')->limit(3);
+        //return view('Dashboard.Index', compact('ordendata', 'productodata', 'materialdata'));
+        return view('Dashboard.Index', compact('ordendata'));
     }
 
     /**

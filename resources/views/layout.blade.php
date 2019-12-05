@@ -2,9 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>HTML</title>
+  <title>Heladeria Adelita</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/label-style.css">
   <link rel="icon" type="image/png" href=" ">
   <script src="/js/fontawesome.js" crossorigin="anonymous"></script>

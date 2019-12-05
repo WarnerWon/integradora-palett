@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Palett</title>
 </head>
-<body style="background-image: url(background.jpg)">
+<body style="background-image: url(images/bg00.jpg)">
     <div>
         <div style="display: inline-block; background-color: #0d1217; width: 100%; padding: 1em; margin: -8px; text-align: end;"">
             @guest
-            <a href="{{ route('login') }}" style="text-decoration: none; margin-inline-end: 1em">Iniciar Sesion</a>
+            <a href="{{ route('login') }}" style="color:aliceblue; font-size:large; text-align: center;text-decoration: none; margin-inline-end: 1em">Iniciar Sesion</a>
             @if (Route::has('register'))
-            <a href="{{ route('register') }}" style="text-decoration: none; margin-inline-end: 1em">Registrarse</a>
+            <a href="{{ route('register') }}" style="color:aliceblue; font-size:large; text-align: center; text-decoration: none; margin-inline-end: 1em">Registrarse</a>
             @endif
             @else
-            <a class="text-decoration: none; margin-inline-end: 2em" href="#" role="button">
+            <a class="color:aliceblue; font-size:large; text-align: center; text-decoration: none; margin-inline-end: 2em" href="#" role="button">
                 {{ Auth::user()->name }} <span class="caret"></span>
             </a>
-            <a class="text-decoration: none; margin-inline-end: 2em" href="{{ route('logout') }}"
+            <a class="color:aliceblue; font-size:large; text-align: center; text-decoration: none; margin-inline-end: 2em" href="{{ route('logout') }}"
                onclick="event.preventDefault();
                              document.getElementById('logout-form').submit();">
                 Salir de sesión

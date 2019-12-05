@@ -2,11 +2,25 @@
 
 @section('content')
     <div class="row">
-        <a class="btn btn-light border-success" href="nuevaOrden"> Añande una nueva Orden</a>
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2>Ordenes</h2>
+            </div>
+            <div class="pull-right">
+                <a class="btn btn-light border-success" href="nuevaOrden"> Añande una nueva Orden</a>
+            </div>
+        </div>
     </div>
+
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p class="justify-content-center">{{ $message }}</p>
+        </div>
+    @endif
+
     @foreach ($ordenes as $item)
-    <div style="display:inline-block; margin-top: 1em;">
-    <div class="card text-white bg-dark mb-3" style="max-width: 540px; margin-right: 2em;">
+    <section id="{{ $item->id }}" style="display:inline-block; margin-top: 1em;">
+    <div class="card text-white bg-dark mb-3" style="width: 480px; margin-right: 1em;">
         <div class="row no-gutters">
             <div class="col-md-4">
                 <img src="images/pink_pop.png" class="card-img" alt="...">
@@ -26,6 +40,6 @@
             </div>
         </div>
     </div>
-    </div>
+    </section>
     @endforeach
 @endsection

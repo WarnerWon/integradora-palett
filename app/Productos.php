@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Productos extends Model
+class productos extends Model
 {
     protected $fillable = [
-        'Nombre', 'Cantidad', 'Precio_produccion', 'Precio_venta'
+        'Nombre', 'Cantidad', 'Precio_produccion',
     ];
 
     public function ordenes(){

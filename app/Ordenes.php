@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ordenes extends Model
+class ordenes extends Model
 {
     protected $fillable = [
         'FechaOrden','FechaEnvio'
