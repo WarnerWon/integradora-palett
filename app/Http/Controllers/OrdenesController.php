@@ -39,6 +39,8 @@ class OrdenesController extends Controller
 
     public function crearOrden(Request $ordenProducto){
 
+        return $ordenProducto;
+
         # Input para crear un nuevo registro de ordenes
         $ordenDatos = [
             'FechaOrden' => date('Y-m-d'),

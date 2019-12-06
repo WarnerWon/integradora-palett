@@ -13,10 +13,18 @@
 Route::get('/', function () {
     return view('Welcome');
 });
+
+Route::get('about', function () {
+    return view('about');
+});
+
+Route::get('users/{id}', function ($id) {
+    
+});
+
 Route::group(['middleware' => ['auth']], function () {
     //Israel
     # Dashboard
-    Route::get('/home', 'HomeController@index')->name('Dashboard');
     Route::resource('Dashboard', 'DashboardController');
     # Ordenes
     Route::GET('Ordenes', 'OrdenesController@traerOrdenes')->name('Ordenes');
