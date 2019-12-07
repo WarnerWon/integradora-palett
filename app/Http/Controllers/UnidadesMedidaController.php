@@ -44,7 +44,8 @@ class UnidadesMedidaController extends Controller
             'Nombre'=>'required',
         ]);
 
-        Unidades_medidas::create($request->all());
+        $medida = Unidades_medidas::find($request->id);
+        $medida->update($request->all());
 
         return redirect()->route('Unidadesmedida')->with('success','Actualizado');
     }

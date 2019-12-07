@@ -12,13 +12,13 @@
 
 </head>
 
-<body>
+<body style="background-image: url(images/bg02.jpg)">
     @include('navbar')
 
     <div class="container" id="main">
-      <div style="padding: 1em;">
-          <h1 class="display-4 text-center">Palett</h1>
-          <p class="lead text-center">Heladeria Adelita</p>
+      <div class="shadow-lg p-3 mb-5" style="padding-top: 1em;">
+          <h1 class="display-4 text-center" style="color: aliceblue">Palett</h1>
+          <p class="lead text-center" style="color: aliceblue">Heladeria Adelita</p>
       </div>
 
       @yield('content')

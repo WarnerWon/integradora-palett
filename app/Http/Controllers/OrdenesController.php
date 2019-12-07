@@ -23,10 +23,26 @@ class OrdenesController extends Controller
             ->join('productos', 'productos.id', '=', 'detalle__ordenes.Productos_id')
             ->join('ordenes', 'ordenes.id', '=', 'detalle__ordenes.Ordenes_id')
             ->where('Ordenes_id', '=', $key->id)
-            ->select('productos.Nombre')
+            ->select('productos.Nombre', 'productos.Cantidad')
             ->get();
         }
-        //return view('Detalle_Orden.index', compact('array'));
+        return view('Detalle_Orden.index',compact('ordenes'));
+    }
+
+    public function traerOrdenesxfecha(Request $request){
+
+        $ordenes = ordenes::whereRaw('FechaOrden between ? and ? ', 
+            [$request->fecha1, $request->fecha2])->get();
+        
+        foreach ($ordenes as $key) {
+            $key['Productos'] = DB::table('detalle__ordenes')
+                ->join('productos', 'productos.id', '=', 'detalle__ordenes.Productos_id')
+                ->join('ordenes', 'ordenes.id', '=', 'detalle__ordenes.Ordenes_id')
+                ->where('Ordenes_id', '=', $key->id)
+                ->select('productos.Nombre', 'productos.Cantidad')
+                ->get();
+        }
+
         return view('Detalle_Orden.index',compact('ordenes'));
     }
 

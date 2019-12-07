@@ -2,59 +2,34 @@
 
 @section('content')
     
-   
-<table style="margin: auto; width: 800px; border-collapse: separate; border-spacing: 10px 5px;">
-        <thead>
-          <th>ID</th>
-          
-          <th>Categoria</th>
-          
-   
-          <th> <a href="Createcategoria"> <button type="button" class="btn btn-info">Nuevo</button> </a> </th>
-        </thead>
-    </table>
-    
-    <div style="align-items: center"  >
-      
-      
-    
-      @foreach ($categoria as $item)
-          
-    
-      <div class="row justify-content-md-center">
-      
-        <div class="col" >
-          <div class="card" >
-            <a href="#" class="waves-light">
-
-              <div class="card-body info-color text-center">  
-              </div>
-
-            </a>
-            <div class="card-footer">
-              <div class="row">
-                  
-                <div class="col-md-3 border-right text-center font-weight-bold">
-                  {{$item->Nombre}}
-                </div>
-
-                <div class="col-md-3 border-left text-center font-weight-bold">
-                  {{$item->Descripcion}}
-                </div>
-
-                <div class="col-md-3 border-left text-center font-weight-bold">
-                    <a type="btn-danger" href="{{route('Categoriasdel', $item->id )}}" > 
-                        <button type="button" class="btn btn-danger">Eliminar</button>
-                    </a>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      @endforeach
-    
+<table class="table table-dark table-striped table-bordered">
+    <thead class="thead">
+        <tr>
+            <th>ID<br>Numero de registro</th>
+            <th>Categoria<br>Nombre de la categoria</th>
+            <th>Descripcion<br>Aclarando un poco lo que es cada categoria</th>
+            <th>Opciones<div class="pull-right">
+                <a href="Createcategoria"> <button type="button" class="btn btn-info">Nuevo</button> </a>
+            </div><br></th>
+        </tr>
+    </thead>
+    @foreach ($categoria as $item)
+        <section id="{{ $item->id }}">
+            <tr>
+  
+                <td>{{ $item->id }}</td>
+                <td>{{ $item->Nombre }}</td>
+                <td>{{ $item->Descripcion }}</td>
+                <td> 
+  
+                  <a type="btn-danger" href="{{route('Categoriasdel', $item->id )}}" > 
+                    <button type="button" class="btn btn-danger">Eliminar</button>          
+                  </a>
+  
+                </td>
+            </tr>
+        </section>
+    @endforeach
+  </table>   
 
 @endsection

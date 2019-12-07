@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Productos;
+use App\materiales;
+use App\productos_materiales;
 
 class ProductosController extends Controller
 {
@@ -34,26 +36,61 @@ class ProductosController extends Controller
     public function update(Request $request){
 
         $request->validate([
-            'Nombre'=>'required',
-            'Cantidad'=>'required',
-            'Precio_produccion'=>'required',
-
+            'id' => 'required',
+            'Nombre' => 'required',
+            'Cantidad' => 'required',
+            'Precio_produccion' => 'required',
         ]);
 
-        Productos::create($request->all());
+        $producto = Productos::find($request->id);
+
+        $producto->update($request->all());
 
         return redirect()->route('productos')->with('success','Actualizado');
     }
     
     public function CreateProducto(){
 
-        return view('productos.Nuevoproducto');
+        $Base = materiales::where('Categoria_id', 4)->get();
+        $Saborizantes = materiales::where('Categoria_id', 1)->get();
+        $Desechables = materiales::where('Categoria_id', 2)->get();
+        $Complementos = materiales::where('Categoria_id', 3)->get();
+        return view('productos.Nuevoproducto',compact('Base','Saborizantes','Desechables','Complementos'));
 
     }
 
     public function store(Request $request){
 
-        Productos::create($request->all());
+        $request->validate([
+            'Nombre' => 'required',
+            'CantidadUnique' => 'required',
+            'Precio_produccion' => 'required',
+            'contenido' => 'required',
+            'Cantidad' => 'required',
+        ]);
+
+        $prod = [
+            'Nombre' => $request->Nombre,
+            'Cantidad' => $request->CantidadUnique,
+            'Precio_produccion' => $request->Precio_produccion,
+        ];
+
+        $prodfinal = Productos::create($prod);
+
+        $materiales = $request->contenido;
+        $cantidades = $request->Cantidad;
+        $i = 0;
+        foreach ($materiales as $idmat) {
+            if ($cantidades[$i] != null) {
+                $aux = [
+                    'Productos_id' => $prodfinal->id,
+                    'Material_id' => $idmat,
+                    'Cantidad_Material' => $cantidades[$i],
+                ];
+                ++$i;
+                productos_materiales::create($aux);
+            }
+        }
 
         return redirect()->route('productos')->with('success','Producto creado correctamente');
     }

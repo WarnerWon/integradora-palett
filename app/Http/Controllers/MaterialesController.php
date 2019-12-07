@@ -38,7 +38,9 @@ class MaterialesController extends Controller
             'CantidadStock'=>'required',
         ]);
 
-        materiales::create($request->all());
+        $material = materiales::find($request->id);
+
+        $material->update($request->all());
 
         return redirect()->route('materiales')->with('success','Actualizado');
     }

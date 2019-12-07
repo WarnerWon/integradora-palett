@@ -18,8 +18,8 @@ Route::get('about', function () {
     return view('about');
 });
 
-Route::get('users/{id}', function ($id) {
-    
+Route::get('NuestrosProductos', function () {
+    return view('NuestrosProductos');
 });
 
 Route::group(['middleware' => ['auth']], function () {
@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::GET('Ordenes', 'OrdenesController@traerOrdenes')->name('Ordenes');
     Route::GET('nuevaOrden', 'OrdenesController@nuevaOrden')->name('nuevaOrden');
     Route::POST('crearOrden', 'OrdenesController@crearOrden')->name('crearOrden');
+    Route::post('OrdenesxFecha', 'OrdenesController@traerOrdenesxfecha')->name('OrdenesxFecha');
     #RUTAS DE PRODUCTOS
     Route::GET('productos', 'ProductosController@index')->name('productos');
     Route::get('Productosdel/{id}', 'ProductosController@Destroy')->name('Productosdel');
@@ -53,7 +54,7 @@ Route::group(['middleware' => ['auth']], function () {
     #RUTAS DE UNIDADES DE MEDIDA
     Route::get('Unidadesmedida', 'UnidadesMedidaController@index')->name('Unidadesmedida');
     Route::get('Unidadesmedidadel/{id}','UnidadesMedidaController@destroy')->name('Unidadesmedidadel');
-    Route::get('Editarunidadmed/{id}','UnidadesMedidaController@Edit')->name('Editarmaterial');
+    Route::get('Editarunidadmed/{id}','UnidadesMedidaController@Edit')->name('Editarunidadmed');
     Route::get('Createunidadmed','UnidadesMedidaController@Createunidadmed');
     Route::POST('Actualizarunidadmed','UnidadesMedidaController@update');
     Route::POST('Nuevaunidadmed', 'UnidadesMedidaController@store'); 
