@@ -18,3 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('login_mobile', 'Api\AuthController@login_mobile');
+Route::get('productosIndex', 'Api\GetController@productosIndex');
+Route::get('ordenesIndex', 'Api\GetController@ordenesIndex');
+Route::get('materialesIndex', 'Api\GetController@materialesIndex');
+Route::get('notification', 'Api\GetController@notification');
