@@ -58,6 +58,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('Createunidadmed','UnidadesMedidaController@Createunidadmed');
     Route::POST('Actualizarunidadmed','UnidadesMedidaController@update');
     Route::POST('Nuevaunidadmed', 'UnidadesMedidaController@store'); 
+
+    #RUTAS DE USUARIOS
+    Route::GET('Usuarios', 'UserController@Form')->name('Usuarios');
+    Route::POST('SaveUser', 'UserController@Register')->name('Register');
+
 });
 
 
