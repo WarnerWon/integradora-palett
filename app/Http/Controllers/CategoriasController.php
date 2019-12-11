@@ -10,15 +10,21 @@ use DB;
 class CategoriasController extends Controller
 {
     public function index(){
+
         $categoria = Categorias::all();
+        
         return view('Categorias.categorias',compact('categoria'));
+    
     }
     
     public function Destroy($id){
+    
         $categoria=Categorias::find($id);
+    
         $categoria->delete();
 
         return redirect('Categorias');
+    
     }
 
     public function Createcategorias(){
@@ -32,6 +38,7 @@ class CategoriasController extends Controller
         Categorias::create($request->all());
 
         return redirect()->route('categorias')->with('success','Material creado correctamente');
+    
     }
 
 }

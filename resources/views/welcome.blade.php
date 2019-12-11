@@ -37,21 +37,44 @@ background-size: cover; position: relative;">
     </div>
     
 
-    <div style="background-color: aliceblue; margin-top: 2em; padding-left: 5em; padding-right: 5em; padding-top: 1em;">
+    <div style="background-color: rgba(255, 125, 255, 0.4); margin-top: 2em; padding-left: 5em; padding-right: 5em; padding-top: 1em;">
         <div class="row justify-content-center">
             <h1>EL HELADO DE TODOS</h1>
             <p style="text-align: center;">En Helados Adelita tenemos gran variedad de productos: <br> litros, conos, paletas de agua, esquimales, esquimales especiales, paletas de crema, cornetos, chamoyadas, yoyo’s, sandwich, bolis, paletas rellenas 
                     <br> Productos de calidad, deliciosos y a un precio excelente. </p>
         </div>
-        <div class="row justify-content-center">
-            <div class="card border-danger" style="width: 18rem;">
-                <img src="images/promo1.jpg" class="card-img-top" alt="Promocion">
-                <div class="card-body">
-                    <p class="card-text">🎄❤️Esquimales sencillos 2X1 2x1 2X1 todo Diciembre ❤️🎄</p>
-                </div>
+    </div>    
+        <div style="background:rgba(138,221,45,0); margin-top: 2em; padding-left: 5em; padding-right: 5em; padding-top: 1em;">
+    <div class="card-deck">
+            <div class="card border-danger">
+              <img src="images/promo1.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+              
             </div>
+            <div class="card border-danger">
+              <img src="images/promocion1.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">🎄❤️Esquimales sencillos 2X1 2x1 2X1 todo Diciembre ❤️🎄</p>
+              </div>
+              
+            </div>
+            <div class="card border-danger">
+              <img src="images/promocion2.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+              </div>
+             
+            </div>
+          </div>
+
         </div>
-    </div>
+
+    
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

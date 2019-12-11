@@ -60,8 +60,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::POST('Nuevaunidadmed', 'UnidadesMedidaController@store'); 
 
     #RUTAS DE USUARIOS
-    Route::GET('Usuarios', 'UserController@Form')->name('Usuarios');
+    Route::GET('Usuarios', 'UserController@Index')->name('Usuarios');
     Route::POST('SaveUser', 'UserController@Register')->name('Register');
+    Route::GET('NewUser', 'Usercontroller@Form');
 
 });
 

@@ -10,15 +10,21 @@ use DB;
 class MaterialesController extends Controller
 {
     public function index(){
+
         $material = materiales::all();
+
         return view('Materiales.materiales',compact('material'));
+
     }
 
     public function Destroy($id){
+
         $material=materiales::find($id);
+
         $material->delete();
 
         return redirect('materiales');
+
     }
 
     public function Edit($id){
@@ -32,11 +38,16 @@ class MaterialesController extends Controller
     public function update(Request $request){
 
         $request->validate([
+
             'Nombre'=>'required',
+        
             'Categoria_id'=>'required',
+        
             'Unidades_medida_Id'=>'required',
+            
             'CantidadStock'=>'required',
-        ]);
+        
+            ]);
 
         $material = materiales::find($request->id);
 
@@ -56,6 +67,7 @@ class MaterialesController extends Controller
         materiales::create($request->all());
 
         return redirect()->route('materiales')->with('success','Material creado correctamente');
+
     }
 
 }

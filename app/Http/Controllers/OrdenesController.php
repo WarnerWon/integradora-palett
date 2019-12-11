@@ -19,14 +19,18 @@ class OrdenesController extends Controller
         $ordenes = ordenes::orderBy('id', 'desc')->get();
 
         foreach ($ordenes as $key) {
+
             $key['Productos'] = DB::table('detalle__ordenes')
-            ->join('productos', 'productos.id', '=', 'detalle__ordenes.Productos_id')
-            ->join('ordenes', 'ordenes.id', '=', 'detalle__ordenes.Ordenes_id')
-            ->where('Ordenes_id', '=', $key->id)
-            ->select('productos.Nombre', 'productos.Cantidad')
-            ->get();
+                ->join('productos', 'productos.id', '=', 'detalle__ordenes.Productos_id')
+                    ->join('ordenes', 'ordenes.id', '=', 'detalle__ordenes.Ordenes_id')
+                        ->where('Ordenes_id', '=', $key->id)
+                            ->select('productos.Nombre', 'productos.Cantidad')
+                                ->get();
+
         }
+
         return view('Detalle_Orden.index',compact('ordenes'));
+    
     }
 
     public function traerOrdenesxfecha(Request $request){
@@ -35,20 +39,26 @@ class OrdenesController extends Controller
             [$request->fecha1, $request->fecha2])->get();
         
         foreach ($ordenes as $key) {
+
             $key['Productos'] = DB::table('detalle__ordenes')
-                ->join('productos', 'productos.id', '=', 'detalle__ordenes.Productos_id')
-                ->join('ordenes', 'ordenes.id', '=', 'detalle__ordenes.Ordenes_id')
-                ->where('Ordenes_id', '=', $key->id)
-                ->select('productos.Nombre', 'productos.Cantidad')
-                ->get();
-        }
+                    ->join('productos', 'productos.id', '=', 'detalle__ordenes.Productos_id')
+                        ->join('ordenes', 'ordenes.id', '=', 'detalle__ordenes.Ordenes_id')
+                            ->where('Ordenes_id', '=', $key->id)
+                                ->select('productos.Nombre', 'productos.Cantidad')
+                                    ->get();
+        
+            }
 
         return view('Detalle_Orden.index',compact('ordenes'));
+    
     }
 
     public function nuevaOrden(){
+
         # Aqui proviciono a la vista con los datos de los productos para que los pueda elegir el usuario
+        
         $productos = productos::all();
+        
         return view('Detalle_Orden.create', compact('productos'))->with('i');
 
     }
@@ -58,11 +68,14 @@ class OrdenesController extends Controller
         return $ordenProducto;
 
         # Input para crear un nuevo registro de ordenes
+        
         $ordenDatos = [
             'FechaOrden' => date('Y-m-d'),
             'FechaEnvio' => $ordenProducto->FechaEnvio,
         ];
+        
         # Se crea la orden con el input
+        
         $orden = ordenes::create($ordenDatos);
         
         # Los id de productos que fueron seleccionados se guardan en un arreglo dentro de nuestra variable $ordenProducto
@@ -92,10 +105,10 @@ class OrdenesController extends Controller
             # $matused es una variable donde guardaremos el resultado de esta consulta, lo que pretendemos sacar
             # de aqui es el id del material + la cantidad de material que cada producto usa.
             # La consulta de abajo hace lo antes dicho
-            $matused = DB::table('productos_materiales')->
-                where('productos_materiales.Productos_id', $id)->
-                    select('productos_materiales.Material_id','productos_materiales.Cantidad_Material')->
-                        get();
+            $matused = DB::table('productos_materiales')
+                ->where('productos_materiales.Productos_id', $id)
+                    ->select('productos_materiales.Material_id','productos_materiales.Cantidad_Material')
+                        ->get();
             
             # Ahora $matused esta poblada de varios renglones de ids con enteros, asi que, lo que sigue es
             # descontarlo de la tabla Materiales, para reflejar que estos productos consumieron estos materiales
@@ -106,9 +119,10 @@ class OrdenesController extends Controller
                 # el cual será objecto de la resta, obviamente este hara el proceso conforme a la ID dada por $matused
                 # Asi que, en teoria, no deberiamos preocuparnos por descontar entre materiales diferentes
                 
-                $cantstock = DB::table('materiales')->
-                    where('id', $key2->Material_id)->
-                        select('materiales.CantidadStock')->get();
+                $cantstock = DB::table('materiales')
+                    ->where('id', $key2->Material_id)
+                        ->select('materiales.CantidadStock')
+                            ->get();
 
                 # La siguiente condicional tratara de filtrar entre las diversas posibilidades de dar de alta una orden
                 # las cuales son: 
@@ -120,20 +134,26 @@ class OrdenesController extends Controller
                     # la orden, despues, se hará un uptdate a la tabla materiales, el cual ahora obtendra la
                     # cantidad actualizada despues de la resta
                     $nuevacant = $cantstock - $key2->Cantidad_Material;
-                    DB::table('materiales')->
-                        where('id', $key2->Material_id)->
-                            update(['CantidadStock' => $nuevacant]);
+                    DB::table('materiales')
+                        ->where('id', $key2->Material_id)
+                            ->update(['CantidadStock' => $nuevacant]);
                 }
                 else {
+                    
                     # El error se devuelve con un with
+                    
                     $orden->delete();
+                    
                     $prueba->delete();
+                    
                     return redirect()->route('Ordenes')->with('success', 'No se tiene en stock la cantidad solicitada');
+                
                 }
             }
         }
         
         return redirect()->route('Ordenes')->with('success', 'Orden creada correctamente');
+    
     }
 
     public function buscarOrden($id){

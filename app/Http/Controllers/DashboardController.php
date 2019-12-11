@@ -24,18 +24,27 @@ class DashboardController extends Controller
     public function index()
     {
         $ordendata = ordenes::orderBy('id', 'desc')->limit(3)->get();
+        
         #$productodata = productos::orderby('id','desc')->limit(3);
+        
         $materialdata = materiales::where('CantidadStock', '<', 50)->orderby('CantidadStock', 'desc')->limit(3)->get();
+        
         foreach ($materialdata as $key) {
+            
             $key['Medida'] = DB::table('unidades_medidas')->
                 where('id', $key->Unidades_medida_Id)->
-                select('Nombre')->first();
+                    select('Nombre')->first();
+
             $key['Tipo'] = DB::table('categorias')->
                 where('id', $key->Categoria_id)->
-                select('Nombre')->first();
+                    select('Nombre')->first();
+        
         }
+        
         #return view('Dashboard.Index', compact('ordendata', 'productodata', 'materialdata'));
+        
         return view('Dashboard.Index', compact('ordendata', 'materialdata'));
+    
     }
 
     /**
