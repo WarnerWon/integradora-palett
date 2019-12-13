@@ -6,6 +6,7 @@
     <a title="Ordenes" href="Ordenes" class="{{ Request::is('Ordenes') ? 'active' : '' }}"><span class="fas fa-boxes"></span></a>
     <a title="Categorias" href="Categorias" class="{{ Request::is('Categorias') ? 'active' : '' }}"><span class="far fa-address-book"></span></a>
     <a title="Unidades de Medida" href="Unidadesmedida" class="{{ Request::is('Unidadesmedida') ? 'active' : '' }}"><span class="fas fa-ruler"></span></a>
+    <a title="Usuarios" href="Usuarios" class="{{ Request::is('Usuarios') ? 'active' : '' }}"><span class="fas fa-user" aria-hidden="true"></span></a>
     <a title="Cerrar Sesion" href="{{ route('logout') }}" onclick="event.preventDefault(); 
         document.getElementById('logout-form').submit();">
         <i class="fas fa-sign-out-alt"></i>

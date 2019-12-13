@@ -8,71 +8,76 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body style="background-image: url(/images/bg02.jpg); background-position: center; background-repeat: no-repeat;
-background-size: cover; position: relative;">
-    @include('layouts.navbar2')
-    
-    <div class="container" style="margin-top: 1em;">
-        <div id="carouselSlidesOnly" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="images/banner1.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="images/banner2.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="images/banner3.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="images/banner4.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="images/banner5.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="images/banner6.jpg" class="d-block w-100" alt="...">
-                </div>
-            </div>
-        </div>
+  background-size: cover; position: relative;">
+  @include('layouts.navbar2')
+  
+  
+  <div style="background-color: rgba(255, 255, 255, 0.712); padding-left: 5em; padding-right: 5em; padding-top: 1em;">
+    <div class="row justify-content-center">
+      <h1>EL HELADO DE TODOS</h1>
+      <p style="text-align: center;">En Helados Adelita tenemos gran variedad de productos: <br> litros, conos, paletas de agua, esquimales, esquimales especiales, paletas de crema, cornetos, chamoyadas, yoyo’s, sandwich, bolis, paletas rellenas 
+        <br> Productos de calidad, deliciosos y a un precio excelente. </p>
     </div>
+  </div>
+  
+  <div class="container" style="margin-top: 1em;">
+    <div id="carouselSlidesOnly" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/banner1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="images/banner2.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="images/banner3.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="images/banner4.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="images/banner5.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="images/banner6.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background-color: rgba(255, 255, 255, 0.712); margin-top: 1em; padding-left: 5em; padding-right: 5em; padding-top: 1em;">
+    <div class="row justify-content-center">
+      <h1>Noticias</h1>
+    </div>
+  </div>
     
-
-    <div style="background-color: rgba(255, 125, 255, 0.4); margin-top: 2em; padding-left: 5em; padding-right: 5em; padding-top: 1em;">
-        <div class="row justify-content-center">
-            <h1>EL HELADO DE TODOS</h1>
-            <p style="text-align: center;">En Helados Adelita tenemos gran variedad de productos: <br> litros, conos, paletas de agua, esquimales, esquimales especiales, paletas de crema, cornetos, chamoyadas, yoyo’s, sandwich, bolis, paletas rellenas 
-                    <br> Productos de calidad, deliciosos y a un precio excelente. </p>
-        </div>
-    </div>    
-        <div style="background:rgba(138,221,45,0); margin-top: 2em; padding-left: 5em; padding-right: 5em; padding-top: 1em;">
+  <div style="background:rgba(138,221,45,0); padding-left: 5em; padding-right: 5em; padding-top: 1em;">
     <div class="card-deck">
-            <div class="card border-danger">
-              <img src="images/promo1.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-              
-            </div>
-            <div class="card border-danger">
-              <img src="images/promocion1.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">🎄❤️Esquimales sencillos 2X1 2x1 2X1 todo Diciembre ❤️🎄</p>
-              </div>
-              
-            </div>
-            <div class="card border-danger">
-              <img src="images/promocion2.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-              </div>
-             
-            </div>
-          </div>
-
+      <div class="card border-danger">
+        <img src="images/promo1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Promoción</h5>
+          <p class="card-text">🎄❤️Esquimales sencillos 2X1 2x1 2X1 todo Diciembre ❤️🎄</p>
+        </div>          
+      </div>
+      <div class="card border-danger">
+        <img src="images/promocion1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Promoción</h5>
+          <p class="card-text">Varquillos Sencillos a 2x1 con un precio de $49</p>
+        </div>      
+      </div>
+      <div class="card border-danger">
+        <img src="images/promocion2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Promoción</h5>
+          <p class="card-text">Helado doble al 2x1</p>
         </div>
+      </div>
+    </div>
+  </div>
+
+  @include('layouts\footer')
 
     
 

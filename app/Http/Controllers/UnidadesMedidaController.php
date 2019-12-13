@@ -10,8 +10,11 @@ use DB;
 class UnidadesMedidaController extends Controller
 {
     public function index(){
+
         $Unidadmed = Unidades_medidas::all();
+        
         return view('UnidadesMedida.UnidadesMedida',compact('Unidadmed'));
+    
     }
 
     #public function delete($id){
@@ -26,8 +29,11 @@ class UnidadesMedidaController extends Controller
     public function destroy($id){
         
         $Unidadmed=Unidades_medidas::find($id);
+    
         $Unidadmed->delete();
+    
         return redirect('Unidadesmedida');
+    
     }
 
     public function Edit($id){
@@ -45,9 +51,11 @@ class UnidadesMedidaController extends Controller
         ]);
 
         $medida = Unidades_medidas::find($request->id);
+    
         $medida->update($request->all());
 
         return redirect()->route('Unidadesmedida')->with('success','Actualizado');
+    
     }
     
     public function Createunidadmed(){
@@ -61,6 +69,7 @@ class UnidadesMedidaController extends Controller
         Unidades_medidas::create($request->all());
 
         return redirect()->route('Unidadesmedida')->with('success','Material creado correctamente');
+    
     }
 
 }

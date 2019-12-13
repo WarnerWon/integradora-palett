@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container" style="background-color: white; padding: 3em">
+    <div class="container" style="background-color: white; padding: 3em; margin-bottom: 2em">
         <h1 style="background-color: lavender; padding: 20px;" class="text-info">Las ultimas órdenes</h1>
         <div class="row">
             @foreach ($ordendata as $item)
@@ -34,9 +34,6 @@
                     </div>
                 </div>
             @endforeach
-        </div>
-        <div class="row">
-            
         </div>
     </div>
     

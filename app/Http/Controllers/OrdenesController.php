@@ -157,7 +157,9 @@ class OrdenesController extends Controller
     }
 
     public function buscarOrden($id){
-        $Detalle_orden = DB::table('Detalle_orden')->
-            where('Ordenes_id', '=', $id);
+
+        $Detalle_orden = DB::table('Detalle_orden')
+            ->where('Ordenes_id', '=', $id);
+    
     }
 }

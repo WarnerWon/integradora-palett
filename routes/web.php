@@ -62,7 +62,7 @@ Route::group(['middleware' => ['auth']], function () {
     #RUTAS DE USUARIOS
     Route::GET('Usuarios', 'UserController@Index')->name('Usuarios');
     Route::POST('SaveUser', 'UserController@Register')->name('Register');
-    Route::GET('NewUser', 'Usercontroller@Form');
+    Route::GET('NewUser', 'UserController@Form');
 
 });
 

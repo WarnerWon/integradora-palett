@@ -19,7 +19,7 @@
                 
                 
                 <label style="color: white">Password: </label>
-                <input class="form-control" type="text" name="Password">
+                <input class="form-control" type="password" name="Password">
                 
     
                
